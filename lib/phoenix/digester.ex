@@ -140,7 +140,7 @@ defmodule Phoenix.Digester do
       content: content,
       digest: digest,
       digested_content: nil,
-      digested_filename: "#{rootname}-#{digest}#{extension}"
+      digested_filename: "#{digest}#{extension}"
     }
   end
 
