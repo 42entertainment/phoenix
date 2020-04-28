@@ -504,6 +504,17 @@ defmodule Phoenix.Endpoint do
           &Phoenix.Endpoint.Supervisor.static_url/1)
       end
 
+      def static_url(path) do
+        (static_url() <> static_path(path))
+        |> static_url_override(static_path(path))
+      end
+
+      def static_url_override(url, _path) do
+        url
+      end
+
+      defoverridable static_url_override: 2
+
       @doc """
       Generates the endpoint base URL but as a `URI` struct.
 
